@@ -492,6 +492,7 @@ const float32* pathfinder_mgr::get_agent_position(int32 id)
 
 core_workqueue::response* pathfinder_mgr::handle_request(const core_workqueue::request* req, const core_workqueue* srcQ)
 {
+	app_unreferenced(srcQ);
 	pathfinder_path* path = app_cast_static(pathfinder_path*, req->get_data());
 
 	polyref_chunk* chunk = m_tile_polyref_pool.get();
@@ -507,6 +508,7 @@ core_workqueue::response* pathfinder_mgr::handle_request(const core_workqueue::r
 
 void pathfinder_mgr::handle_response(const core_workqueue::response* res, const core_workqueue* srcQ)
 {
+	app_unreferenced(srcQ);
 	pathfinder_path* path = app_cast_static(pathfinder_path*, res->get_request()->get_data());
 	path->set_response(0);
 	path->set_finished(true);

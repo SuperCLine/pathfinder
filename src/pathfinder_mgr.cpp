@@ -73,8 +73,8 @@ struct CrowdImpl
 
 
 pathfinder_mgr::pathfinder_mgr(void)
-	: m_work_queue(0)
-	, m_work_channel(0)
+	: m_work_channel(0)
+	, m_work_queue(0)
 	, m_crowd_impl(0)
 {
 	m_pathfinder_map[EPFP_NAVMESH] = new pathfinder_navmesh_finder();

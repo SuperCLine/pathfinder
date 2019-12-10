@@ -29,6 +29,7 @@ class pathfinder_pathpoint_pool : public core
 public:
 	struct pathpoint_chunk
 	{
+		virtual ~pathpoint_chunk(void) {}
 		virtual float32* get_chunk(void) = 0;
 		virtual int32 get_capacity(void) = 0;
 	};
@@ -53,30 +54,35 @@ private:
 	struct pathpoint_chunk_128 : public pathpoint_chunk
 	{
 		float32 data[EPS_128];
+		virtual ~pathpoint_chunk_128(void) {}
 		virtual float32* get_chunk(void) { return data; }
 		virtual int32 get_capacity(void) { return EPS_128; }
 	};
 	struct pathpoint_chunk_256 : public pathpoint_chunk
 	{
 		float32 data[EPS_256];
+		virtual ~pathpoint_chunk_256(void) {}
 		virtual float32* get_chunk(void) { return data; }
 		virtual int32 get_capacity(void) { return EPS_256; }
 	};
 	struct pathpoint_chunk_512 : public pathpoint_chunk
 	{
 		float32 data[EPS_512];
+		virtual ~pathpoint_chunk_512(void) {}
 		virtual float32* get_chunk(void) { return data; }
 		virtual int32 get_capacity(void) { return EPS_512; }
 	};
 	struct pathpoint_chunk_1024 : public pathpoint_chunk
 	{
 		float32 data[EPS_1024];
+		virtual ~pathpoint_chunk_1024(void) {}
 		virtual float32* get_chunk(void) { return data; }
 		virtual int32 get_capacity(void) { return EPS_1024; }
 	};
 	struct pathpoint_chunk_2048 : public pathpoint_chunk
 	{
 		float32 data[EPS_2048];
+		virtual ~pathpoint_chunk_2048(void) {}
 		virtual float32* get_chunk(void) { return data; }
 		virtual int32 get_capacity(void) { return EPS_2048; }
 	};

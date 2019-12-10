@@ -7,6 +7,7 @@ __BEGIN_NAMESPACE
 pathfinder_path::pathfinder_path(void)
 	: m_path_map(0)
 	, m_path_finder(0)
+	, m_path_filter(0)
 	, m_pool_policy(0)
 	, m_radius(0.f)
 	, m_request_id(0)
@@ -15,7 +16,6 @@ pathfinder_path::pathfinder_path(void)
 	, m_pathpoint_count(0)
 	, m_path_result(EPR_INIT)
 	, m_finished(false)
-	, m_path_filter(0)
 {
 
 }

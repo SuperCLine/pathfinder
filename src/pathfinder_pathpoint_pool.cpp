@@ -21,12 +21,13 @@ pathfinder_pathpoint_pool::pathfinder_pathpoint_pool(void)
 
 pathfinder_pathpoint_pool::~pathfinder_pathpoint_pool(void)
 {
-	app_safe_delete(m_pool_garbager128);
-	app_safe_delete(m_pool_garbager256);
-	app_safe_delete(m_pool_garbager512);
-	app_safe_delete(m_pool_garbager1024);
-	app_safe_delete(m_pool_garbager2048);
+	util_safe_delete<core_pool_garbager<pathpoint_chunk_128>>(m_pool_garbager128);
+	util_safe_delete<core_pool_garbager<pathpoint_chunk_256>>(m_pool_garbager256);
+	util_safe_delete<core_pool_garbager<pathpoint_chunk_512>>(m_pool_garbager512);
+	util_safe_delete<core_pool_garbager<pathpoint_chunk_1024>>(m_pool_garbager1024);
+	util_safe_delete<core_pool_garbager<pathpoint_chunk_2048>>(m_pool_garbager2048);
 }
+
 pathfinder_pathpoint_pool::pathpoint_chunk* pathfinder_pathpoint_pool::get(int32 size)
 {
 	if (size <= EPS_128)

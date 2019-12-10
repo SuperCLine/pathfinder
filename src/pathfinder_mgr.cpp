@@ -22,7 +22,7 @@ struct CrowdImpl
 	core_thread*		proc_thread;
 	volatile bool		has_exit;
 
-	CrowdImpl(bool t, pathfinder_navmesh* mesh) : use_thread(t), nav_mesh(mesh), crowd(0), proc_thread(0), has_exit(false)
+	CrowdImpl(bool t, pathfinder_navmesh* mesh) : use_thread(t), crowd(0), nav_mesh(mesh), proc_thread(0), has_exit(false)
 	{
 		crowd = dtAllocCrowd();
 

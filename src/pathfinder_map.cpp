@@ -34,7 +34,7 @@ void pathfinder_map::add_navmesh(pathfinder_navmesh* mesh)
 
 pathfinder_navmesh* pathfinder_map::find_navmesh(float32 radius)
 {
-	std::auto_ptr<pathfinder_navmesh> ptest(new pathfinder_navmesh(radius));
+	std::unique_ptr<pathfinder_navmesh> ptest(new pathfinder_navmesh(radius));
 	ulist<pathfinder_navmesh*>::iterator itr = std::lower_bound(m_navmesh_list.begin(), m_navmesh_list.end(), ptest.get(), TPathCompare());
 	if (itr == m_navmesh_list.end())
 		return m_navmesh_list.back();

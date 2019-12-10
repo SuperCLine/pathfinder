@@ -53,7 +53,7 @@ EPathResult pathfinder_finder::find_path(dtNavMeshQuery* query,
 		filter,
 		poly_chunk->chunk_data, &poly_count, pathfinder_mgr::polyref_chunk::CHUNKSIZE);
 
-	if (!poly_count)
+	if (!poly_count || dtStatusFailed(status))
 		return EPR_NOPATH;
 
 	app_assert(poly_count <= pathfinder_mgr::polyref_chunk::CHUNKSIZE);

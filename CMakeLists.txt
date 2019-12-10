@@ -5,10 +5,10 @@ find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
 add_subdirectory(external/recastnavigation)
 
-if (BUILD_PATHFINDER_STATIC)
-    add_library(pathfinder STATIC ${SOURCES})
+if (BUILD_PATHFINDER_STATIC OR UNIX)
+	add_library(pathfinder STATIC ${SOURCES})
 else ()
-    add_library(pathfinder SHARED ${SOURCES})
+	add_library(pathfinder SHARED ${SOURCES})
 endif ()
 
 add_library(SuperCLine::pathfinder ALIAS pathfinder)
